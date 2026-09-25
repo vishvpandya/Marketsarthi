@@ -1,0 +1,50 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "MarketSarthi: Start API",
+      "type": "shell",
+      "command": "uv --cache-dir apps/api/.uv-cache run --project apps/api uvicorn app.main:app --reload --app-dir apps/api --port 8000",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "group": "marketsarthi",
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "MarketSarthi: Start Web",
+      "type": "shell",
+      "command": "npm run dev:web",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "group": "marketsarthi",
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "MarketSarthi: Start Full Stack",
+      "dependsOrder": "parallel",
+      "dependsOn": [
+        "MarketSarthi: Start API",
+        "MarketSarthi: Start Web"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "MarketSarthi: Test API",
+      "type": "shell",
+      "command": "npm run test:api",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "MarketSarthi: Build Web",
+      "type": "shell",
+      "command": "npm run build:web",
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}

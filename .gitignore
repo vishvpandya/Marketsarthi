@@ -1,0 +1,36 @@
+# Secrets
+.env
+.env.*
+!.env.example
+!apps/web/.env.local.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.uv-cache/
+.venv/
+apps/api/.venv/
+apps/api/.venv-*/
+
+# Node
+node_modules/
+.next/
+out/
+npm-debug.log*
+*.tsbuildinfo
+
+# Application data
+data/*.db
+data/cache/
+
+# Editors and operating systems
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,18 @@
+{
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "python.defaultInterpreterPath": "${workspaceFolder}/apps/api/.venv/Scripts/python.exe",
+  "python.analysis.extraPaths": ["${workspaceFolder}/apps/api"],
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": ["-c", "apps/api/pyproject.toml", "apps/api/tests"],
+  "python.testing.unittestEnabled": false,
+  "editor.formatOnSave": true,
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "marketsarthi",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev:api": "uv --cache-dir apps/api/.uv-cache run --project apps/api uvicorn app.main:app --reload --app-dir apps/api --port 8000",
+    "dev:web": "npm --prefix apps/web run dev",
+    "build:web": "npm --prefix apps/web run build",
+    "lint:web": "npm --prefix apps/web run lint",
+    "lint:api": "uv --cache-dir apps/api/.uv-cache run --project apps/api --extra dev ruff check apps/api/app apps/api/tests apps/api/scripts",
+    "test:api": "uv --cache-dir apps/api/.uv-cache run --project apps/api --extra dev pytest -c apps/api/pyproject.toml -q"
+  }
+}

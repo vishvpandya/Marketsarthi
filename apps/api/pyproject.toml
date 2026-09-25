@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "marketsarthi-api"
+version = "0.1.0"
+description = "Evidence-first market expansion API for MarketSarthi"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1.0",
+  "httpx>=0.28,<1.0",
+  "pydantic-settings>=2.7,<3.0",
+  "typesafe-sdk>=0.7.1,<1.0",
+  "uvicorn[standard]>=0.34,<1.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3,<10.0",
+  "pytest-asyncio>=0.25,<2.0",
+  "respx>=0.22,<1.0",
+  "ruff>=0.9,<1.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
