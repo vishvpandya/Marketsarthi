@@ -45,7 +45,7 @@ saves pilot rounds and helps define the next experiment
 MarketSarthi does not claim that a city will succeed. It helps a merchant make the next experiment more informed, measurable and transparent.
 
 🔄 Complete Product Workflow
-
+```mermaid
 flowchart TD
 
     A["👤 Merchant Input<br/>Product • Category • Price • Pack Size<br/>Business Story • Constraints • Candidate Cities"]
@@ -144,7 +144,9 @@ flowchart TD
 
     ANSWER --> GUIDE["⏱️ Refresh Guidance When Evidence Is Old"]
     GUIDE --> REF
+```
 
+---
 🏗️ Architecture at a Glance
 
 The complete workflow above explains the product journey.
