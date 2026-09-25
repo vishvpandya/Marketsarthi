@@ -1,293 +1,244 @@
 <div align="center">
 
-MarketSarthi
+🚀 MarketSarthi
 
-Evidence-first regional expansion copilot for Indian MSMEs and D2C merchants
+Evidence-first regional expansion copilot for Indian MSMEs & D2C brands
 
 Research → Compare → Verify → Pilot → Measure → Learn
 
+
+
+
+
+
+
 </div>
 
-MarketSarthi helps a merchant turn product facts and business context
-into a transparent, source-linked market hypothesis and a small,
-measurable real-world pilot.
+🧭 What is MarketSarthi?
 
-It does not promise that a product or city will succeed. Instead, it
-collects public market signals, separates evidence from assumptions,
-exposes research gaps and contradictions, and helps the merchant decide
-what to test next.
+MarketSarthi is an evidence-first market expansion copilot designed for Indian MSMEs and D2C merchants.
 
-Core idea:
+A merchant can enter a product, business context, pricing, pack size, constraints and candidate cities. MarketSarthi then:
 
-Research → Understand → Verify → Pilot → Measure → Learn
+creates an editable AI research brief
 
-System Workflow
+plans bounded market research
 
-The complete product journey is shown below.
+collects evidence from multiple public sources
+
+normalizes and scopes the evidence
+
+optionally uses TypeSafe Jev for Shopping classification
+
+applies deterministic rules before AI synthesis
+
+explains the evidence using an LLM
+
+helps the merchant identify potential retail channels
+
+supports a small real-world pilot
+
+measures the pilot using deterministic calculations
+
+saves pilot rounds and helps define the next experiment
+
+MarketSarthi does not claim that a city will succeed. It helps a merchant make the next experiment more informed, measurable and transparent.
+
+🔄 Complete Product Workflow
 
 flowchart TD
 
-    A["Merchant Input<br/>Product • Category • Price • Pack Size<br/>Business Story • Constraints • Candidate Cities"]
-        --> B["AI Research Brief<br/>DeepSeek V4.1 Flash"]
+    A["👤 Merchant Input<br/>Product • Category • Price • Pack Size<br/>Business Story • Constraints • Candidate Cities"]
+        --> B["🧠 AI Research Brief<br/>DeepSeek V4.1 Flash"]
 
-    B --> C{"Merchant Reviews Brief"}
+    B --> C{"✏️ Merchant Reviews Brief"}
 
     C -->|Edit| B
-    C -->|Approve| D["Research Plan Preview<br/>No Paid API Calls"]
+    C -->|Approve| D["📋 Research Plan Preview<br/>No Paid API Calls"]
 
-    D --> E["Start Live Research"]
+    D --> E["🔎 Start Live Research"]
 
-    subgraph EVIDENCE["Live Evidence Collection — SerpApi"]
+    subgraph EVIDENCE["SerpApi — Evidence Collection"]
         direction TB
-        E --> S1["Google Shopping<br/>Products • Brands • Prices • Packs"]
-        E --> S2["Google Maps<br/>Potential Local Shops"]
-        E --> S3["Google Maps Reviews<br/>Product Mentions • Customer Voice"]
-        E --> S4["Google Trends<br/>12-Month Interest • City Comparison"]
-        E --> S5["Google Search<br/>Sellers • Distributors • Events • Schemes"]
-        E --> S6["Google News<br/>Market • Events • Retail • Policy • Supply"]
+
+        E --> S1["🛒 Google Shopping<br/>Products • Brands • Prices • Packs"]
+
+        E --> S2["📍 Google Maps<br/>Potential Local Shops"]
+
+        E --> S3["💬 Maps Reviews<br/>Product Mentions • Customer Voice"]
+
+        E --> S4["📈 Google Trends<br/>Relative Interest • City Comparison"]
+
+        E --> S5["🔎 Google Search<br/>Sellers • Distributors • Events • Schemes"]
+
+        E --> S6["📰 Google News<br/>Market • Retail • Policy • Supply"]
     end
 
-    S1 --> N["Evidence Processing<br/>Normalize • Deduplicate • Scope • Timestamp"]
+    S1 --> N["⚙️ Evidence Processing<br/>Normalize • Deduplicate • Scope • Timestamp"]
     S2 --> N
     S3 --> N
     S4 --> N
     S5 --> N
     S6 --> N
 
-    N --> J{"TypeSafe Jev<br/>Configured?"}
+    N --> J{"🧩 TypeSafe Jev<br/>Configured?"}
 
-    J -->|High Confidence| JC["Shopping Classification<br/>Direct • Alternative • Uncertain"]
-    J -->|Unavailable / Low Confidence / Failed| FC["Keep Existing Classification"]
+    J -->|Yes + High Confidence| JC["Jev Shopping Classification<br/>Direct • Alternative • Uncertain"]
+    J -->|No / Low Confidence / Failed| FC["Existing Classification Path"]
 
-    JC --> SC["Deterministic City Evidence Scorecard"]
+    JC --> SC["📊 Deterministic City Evidence Scorecard"]
     FC --> SC
 
-    SC --> AI["Evidence-Bound AI Synthesis<br/>DeepSeek Primary • Gemini Fallback"]
+    SC --> AI["🤖 Evidence-Bound AI Synthesis<br/>DeepSeek Primary • Gemini Fallback"]
 
-    AI --> R["Results & Pilot Workspace"]
+    AI --> R["📦 Results & Pilot Workspace"]
 
-    R --> O["Decision Overview<br/>Observed • Unknown • Next Action • Limits"]
-    R --> EV["Evidence & Sources<br/>Plan • Tool Trace • Evidence Ledger"]
-    R --> CP["MarketSarthi Copilot<br/>Answers from Saved Evidence"]
+    R --> O["📌 Decision Overview<br/>Observed • Unknown • Next Action • Limits"]
+    R --> EV["🔗 Evidence & Sources<br/>Plan • Tool Trace • Evidence Ledger"]
+    R --> CP["💬 MarketSarthi Copilot<br/>Answers from Saved Evidence"]
 
-    R --> RF{"Need New Evidence?"}
+    R --> RF{"🔄 Need New Evidence?"}
 
-    RF -->|Yes| REF["Targeted Refresh<br/>Shopping • Maps/Reviews • Trends<br/>Search • News"]
+    RF -->|Yes| REF["🎯 Targeted Refresh<br/>Shopping • Maps/Reviews • Trends<br/>Search • News"]
     REF --> E
 
-    RF -->|No| CITY["Choose Researched City"]
+    RF -->|No| CITY["🏙️ Choose Researched City"]
 
-    CITY --> P["Plan Small Pilot<br/>Duration • Quantity • Shops<br/>Test Price • Merchant Thresholds"]
+    CITY --> P["🧪 Plan Small Pilot<br/>Duration • Quantity • Shops<br/>Test Price • Merchant Thresholds"]
 
-    P --> SH["Select Potential Shops<br/>Google Maps Leads"]
+    P --> SH["🏪 Select Potential Shops<br/>Google Maps Leads"]
 
-    SH --> OUT["Merchant Outreach<br/>Not Contacted → Contacted<br/>Interested → Confirmed / Declined"]
+    SH --> OUT["📞 Merchant Outreach<br/>Not Contacted → Contacted<br/>Interested → Confirmed / Declined"]
 
-    OUT --> TEST["Run Real-World Pilot"]
+    OUT --> TEST["🚀 Run Real-World Pilot"]
 
-    TEST --> MEAS["Record Results<br/>Bought • Returned • Damaged<br/>Missing • Still at Shop"]
+    TEST --> MEAS["📝 Record Results<br/>Bought • Returned • Damaged<br/>Missing • Still at Shop"]
 
-    MEAS --> REVIEW["Deterministic Pilot Review"]
+    MEAS --> REVIEW["🧮 Deterministic Pilot Review"]
 
-    REVIEW --> EX["AI / Local Explanation<br/>AI Cannot Change Calculated Outcome"]
+    REVIEW --> EX["💡 AI / Local Explanation<br/>AI Cannot Change Calculated Outcome"]
 
-    EX --> SUM["Final Decision Summary<br/>Observed • Unknown • Next Step<br/>What Not to Conclude"]
+    EX --> SUM["📋 Final Decision Summary<br/>Observed • Unknown • Next Step<br/>What Not to Conclude"]
 
-    SUM --> SAVE["Save Pilot Round"]
+    SUM --> SAVE["💾 Save Pilot Round"]
 
-    SAVE --> HISTORY["Pilot History<br/>Up to 12 Saved Rounds"]
+    SAVE --> HISTORY["📚 Pilot History<br/>Up to 12 Saved Rounds"]
 
-    HISTORY --> COMP["Compare Latest Two Rounds<br/>Measured Changes Only"]
+    HISTORY --> COMP["📊 Compare Latest Two Rounds<br/>Measured Changes Only"]
 
-    COMP --> CHANGE["Choose Main Planned Change<br/>Repeat • Price • Pack • Product<br/>Shop Type • Display • Other"]
+    COMP --> CHANGE["🔧 Choose Main Planned Change<br/>Repeat • Price • Pack • Product<br/>Shop Type • Display • Other"]
 
-    CHANGE --> NEXT["Start Next Bounded Test"]
+    CHANGE --> NEXT["🧪 Start Next Bounded Test"]
 
     NEXT --> P
 
-    SUM --> REPORT["Download Markdown Pilot Report<br/>Evidence • Sources • Pilot Results"]
+    SUM --> REPORT["📄 Download Markdown Pilot Report<br/>Evidence • Sources • Pilot Results"]
 
-    R --> BACKUP["JSON Workspace Backup"]
-    BACKUP --> RESTORE["Validated Workspace Restore"]
+    R --> BACKUP["💾 JSON Workspace Backup"]
+    BACKUP --> RESTORE["♻️ Validated Workspace Restore"]
     RESTORE --> R
 
-    CP --> ROUTE["Deterministic Intent Routing"]
+    CP --> ROUTE["🧭 Deterministic Intent Routing"]
 
-    ROUTE --> ANSWER["Evidence-First Answer<br/>Whitelisted Sources + Check Time"]
+    ROUTE --> ANSWER["💬 Evidence-First Answer<br/>Whitelisted Sources + Check Time"]
 
-    ANSWER --> GUIDE["Refresh Guidance When Evidence Is Old"]
+    ANSWER --> GUIDE["⏱️ Refresh Guidance When Evidence Is Old"]
     GUIDE --> REF
 
-Architecture at a glance
+🏗️ Architecture at a Glance
 
-This smaller diagram shows the main technical path behind the product.
+The complete workflow above explains the product journey.
+
+This smaller diagram explains the technical pipeline.
 
 flowchart LR
 
-    A["Merchant"]
-        --> B["MarketSarthi"]
+    A["👤 Merchant"]
+        --> B["🟦 MarketSarthi"]
 
-    B --> C["AI Research Brief"]
+    B --> C["🧠 AI Research Brief"]
 
-    C --> D["SerpApi<br/>6 Evidence Engines"]
+    C --> D["🔎 SerpApi<br/>6 Evidence Engines"]
 
-    D --> E["Evidence Processing<br/>Normalize • Deduplicate • Scope"]
+    D --> E["⚙️ Evidence Processing<br/>Normalize • Deduplicate • Scope"]
 
-    E --> F["TypeSafe Jev<br/>Optional Shopping Classification"]
+    E --> F["🧩 TypeSafe Jev<br/>Optional Shopping Classification"]
 
-    F --> G["Deterministic Rules<br/>Scorecard • Validation • Pilot Outcome"]
+    F --> G["📊 Deterministic Rules<br/>Scorecard • Validation • Pilot Outcome"]
 
-    G --> H{"AI Synthesis"}
+    G --> H{"🤖 AI Synthesis"}
 
-    H --> I["DeepSeek V4.1 Flash<br/>Primary"]
-    H --> J["Gemini<br/>Optional Fallback"]
+    H -->|Primary| I["DeepSeek V4.1 Flash"]
+    H -->|Fallback| J["Gemini"]
 
-    I --> K["Results"]
+    I --> K["📦 Results"]
     J --> K
 
-    K --> L["Small Real-World Pilot"]
+    K --> L["🧪 Small Real-World Pilot"]
 
-    L --> M["Measured Results"]
+    L --> M["📈 Measured Results"]
 
     M --> G
 
-What is MarketSarthi?
+🎯 Why MarketSarthi?
 
-Small merchants often want to enter a new city but cannot afford
-conventional market research.
+Traditional market research can be expensive and difficult for small businesses.
 
-MarketSarthi organizes publicly observable signals into a research
-workflow. It can collect:
+MarketSarthi focuses on a simpler loop:
 
-Similar products, brands, prices and pack sizes
+Collect Evidence
+      ↓
+Understand What Is Known
+      ↓
+Identify What Is Missing
+      ↓
+Run a Small Test
+      ↓
+Measure What Actually Happened
+      ↓
+Choose the Next Experiment
+
+The important distinction is:
+
+AI explains evidence
+        ≠
+AI predicts guaranteed success
+
+🔎 Evidence Sources
+
+MarketSarthi uses six SerpApi research surfaces:
+
+Source
+
+What MarketSarthi Uses It For
+
+🛒 Google Shopping
+
+Products, brands, prices, packs and positioning
+
+📍 Google Maps
 
 Potential local retail channels
 
+💬 Google Maps Reviews
+
 Product-specific review mentions
 
-Relative Google Trends interest
+📈 Google Trends
 
-Seller, distributor and event information
+Relative search interest over time and by city
 
-Recent market, retail, policy and supply context
+🔎 Google Search
 
-The system then separates those observations by evidence scope,
-highlights gaps and contradictions, and helps the merchant design a
-bounded pilot.
+Sellers, distributors, events, schemes and source pages
 
-The running demonstration uses a family-run roasted methi khakhra
-business in Bolpur considering Kolkata. The architecture is product- and
-region-aware, so the same workflow can be used for other products and
-candidate markets.
+📰 Google News
 
-What MarketSarthi does not do
-
-MarketSarthi does not:
-
-Promise market success
-
-Treat Google Trends as demand or sales
-
-Treat news coverage as proof of demand
-
-Treat Maps businesses as confirmed distributors
-
-Treat a review mention as proof of current stock
-
-Treat an evidence-coverage percentage as a success probability
-
-Let an AI model override deterministic pilot calculations
-
-Turn a successful small pilot into proof of city-wide demand
-
-The product is designed around evidence, uncertainty and controlled
-experimentation.
-
-How It Works
-
-1. Prepare
-
-The merchant enters the product, category, current market, candidate
-cities, price range, pack size, differentiators, business background and
-expansion goal.
-
-2. Build the research brief
-
-DeepSeek V4.1 Flash creates an editable research brief. Gemini can be
-configured as a fallback. If configured AI providers are unavailable,
-MarketSarthi can create an editable local template from the merchant's
-information.
-
-The merchant reviews and approves the brief before live research.
-
-3. Preview the research plan
-
-Preview mode shows the planned business questions, regions, engines and
-call budget without using paid search calls.
-
-4. Run live research
-
-SerpApi collects bounded evidence through:
-
-Google Shopping
-
-Google Maps
-
-Google Maps Reviews
-
-Google Trends
-
-Google Search
-
-Google News
-
-Every planned query has a business question and an execution status.
-
-5. Process and explain the evidence
-
-MarketSarthi normalizes and deduplicates results, records evidence scope
-and check time, separates direct/alternative/uncertain Shopping matches,
-and calculates deterministic city evidence coverage.
-
-TypeSafe Jev is optional and confidence-gated for Shopping
-classification only.
-
-DeepSeek is the primary synthesis path. Gemini can be used as a
-fallback. AI explains the collected evidence but does not replace
-deterministic application rules.
-
-6. Test instead of guessing
-
-After research, the merchant can select a researched city, choose
-potential shops, track outreach and run a small pilot.
-
-The merchant records actual results. MarketSarthi calculates the pilot
-outcome using deterministic rules and can ask the configured AI to
-explain the fixed result and propose one bounded next experiment.
-
-Evidence Sources
-
-Source                              What it provides
-
-Google Shopping                 Products, brands, prices, packs,
-ratings and positioning
-
-Google Maps                     Potential local retail channels
-
-Google Maps Reviews             Bounded product-specific review
-mentions
-
-Google Trends                   Relative search interest over time
-and by returned city
-
-Google Search                   Sellers, distributors, events,
-official pages and schemes
-
-All six surfaces are accessed through SerpApi.
+Market, retail, policy, supply and customer context
 
 Evidence scopes
 
-Every evidence item is assigned one of three scopes:
+Each evidence item is assigned a scope:
 
 city_local
 
@@ -295,216 +246,102 @@ india_wide_online
 
 business_review
 
-A city-specific label requires the city to appear clearly in the title,
-snippet or displayed URL where applicable.
+This prevents the system from treating every search result as city-specific evidence.
 
-Evidence → Decision Design
+🧩 TypeSafe Jev Integration
 
-MarketSarthi deliberately separates retrieval, deterministic logic and
-AI explanation.
+TypeSafe Jev is part of the MarketSarthi pipeline.
 
-External Evidence
-       ↓
-Normalize + Deduplicate
-       ↓
-Deterministic Rules
-       ↓
-AI Explanation
-       ↓
-Merchant Decision
+It is used specifically for Google Shopping classification after Shopping results have been retrieved and normalized.
 
-This means the language model is not responsible for deciding whether
-the city will succeed.
+flowchart LR
 
-For example:
+    A["Google Shopping<br/>SerpApi Results"]
+        --> B["Normalize Listings"]
 
-Google Trends = relative search interest
-NOT
-Google Trends = number of buyers
+    B --> C{"TypeSafe Jev<br/>Configured?"}
 
-Likewise:
+    C -->|Yes| D["Jev Typed Classification"]
 
-Evidence coverage = research completeness
-NOT
-Evidence coverage = probability of success
+    D --> E{"Confidence ≥ Threshold?"}
 
-And:
+    E -->|Yes| F["Use Jev Classification"]
+    E -->|No| G["Keep Existing Classification"]
 
-Pilot checks met = merchant-defined experiment criteria
-NOT
-Pilot checks met = city-wide market validation
+    C -->|No| G
 
-TypeSafe Jev Integration
+    F --> H["Direct / Alternative / Uncertain"]
+    G --> H
 
-Jev is an optional classification layer for Google Shopping
-evidence.
+    H --> I["Deterministic Scorecard"]
 
-SerpApi Shopping Results
-        ↓
-Normalization
-        ↓
-Jev Classification
-        ↓
-Confidence Check
-   ┌────┴────┐
-   ↓         ↓
-High       Low / Failed
-confidence
-   ↓         ↓
-Use Jev    Keep existing
-decision   classification
+Jev's role
 
 Jev:
 
-Does not search the web
+classifies Google Shopping evidence
 
-Does not replace SerpApi
+provides typed structured classification
 
-Does not change prices
+uses a confidence threshold
 
-Does not decide market success
+falls back when unavailable or uncertain
 
-Does not classify Maps, Trends, Search or News
+does not search the web
 
-Only replaces an existing Shopping label when the configured
-confidence threshold is met
+does not replace SerpApi
 
-The current default confidence threshold is 0.65.
+does not change prices
 
-City Evidence Scorecard
+does not classify Maps, Trends, Search or News
 
-The deterministic scorecard compares research coverage across cities
-without ranking them by predicted success.
+does not decide whether a city will succeed
 
-The coverage checks include:
+Current default confidence threshold: 0.65
 
-At least three same-product listings
+📊 Deterministic Evidence Scorecard
 
-At least one usable same-product price
+MarketSarthi calculates research coverage using deterministic rules.
 
-At least five local shops to check
+The six checks are:
 
-At least one shop with a product-specific review mention
+At least 3 same-product listings
 
-At least one city-specific web result
+At least 1 usable same-product price
+
+At least 5 local shops to check
+
+At least 1 shop with a product-specific review mention
+
+At least 1 city-specific web result
 
 A returned Google Trends row for the candidate city
 
-A higher coverage percentage means fewer research gaps. It does not
-mean stronger demand, a better market or a higher probability of
-success.
+Evidence coverage means research completeness. It is not a demand score, success probability or market ranking.
 
-When multiple cities are researched, MarketSarthi preserves the
-merchant's city order and shows the same evidence dimensions side by
-side.
-
-Research Budget
-
-MarketSarthi intentionally uses bounded query planning.
-
-For one candidate city, the maximum planned SerpApi usage is:
-
-Engine                                 Maximum calls
-
-Google Shopping                                    5
-Google Maps                                        5
-Google Maps Reviews                                3
-Google Search                                      6
-Google News                                       12
-Google Trends                      2 overall request
-Worst-case one-city budget                33
-
-Some research groups can stop early when their evidence threshold is
-already satisfied.
-
-Identical successful SerpApi requests can also reuse a process-local
-cache for up to one hour by default. Merchant-triggered targeted
-refreshes bypass that cache.
-
-MarketSarthi Copilot
-
-The floating Copilot answers questions from the current saved
-workspace.
-
-It does not start a new SerpApi search.
-
-The Copilot uses deterministic intent routing:
-
-Merchant Question
-       ↓
-Intent Routing
-       ↓
-┌────────────┬────────────┬─────────────┐
-↓            ↓            ↓             ↓
-Prices      Shops       Reviews      Trends/Search/News
-↓            ↓            ↓             ↓
-Shopping    Maps       Customer       Matching
-Evidence    + Reviews   Voice         Evidence
-       \       |          |             /
-        \      |          |            /
-         └─────┴──────────┴───────────┘
-                    ↓
-          Evidence-First Answer
-                    ↓
-        Whitelisted Source Links
-                    +
-              Check Time
-
-The Copilot can explain:
-
-Saved prices
-
-City findings
-
-Shop leads
-
-Review observations
-
-Trends
-
-Web evidence
-
-News
-
-Evidence gaps
-
-Next steps
-
-If newer evidence is needed, it guides the merchant to the appropriate
-targeted refresh instead of silently performing a paid search.
-
-The Pilot Workflow
+🧪 Small Real-World Pilot
 
 Research is only the beginning.
 
-After live research, the merchant can choose a researched city and
-define a small test.
-
-Pilot plan
+After reviewing the evidence, the merchant can select a researched city and create a bounded pilot.
 
 The merchant controls:
 
-Test duration
+test duration
 
-Planned quantity
+planned quantity
 
-Participating shops
+participating shops
 
-Test price
+test price
 
-Target percentage of packets bought
+target percentage bought
 
-Maximum acceptable returned percentage
-
-MarketSarthi does not invent these values.
+maximum acceptable return percentage
 
 Shop outreach
 
-Potential Google Maps leads can be shortlisted for outreach.
-
-Each shop has a merchant-controlled status:
-
-Not contacted
+Not Contacted
       ↓
 Contacted
       ↓
@@ -512,13 +349,13 @@ Interested
       ↓
 Confirmed / Declined
 
-A confirmed status means the merchant recorded that the retailer
-agreed to the bounded pilot. It is not inferred from Maps, reviews or
-AI.
+A confirmed shop means the merchant recorded that the retailer agreed to the bounded test.
 
-Shop-level measurements
+It does not mean permanent distribution or proven demand.
 
-For confirmed shops, the merchant can record:
+Shop measurements
+
+The merchant can record:
 
 Packets given
 
@@ -538,125 +375,97 @@ Learning notes
 
 Every packet must be accounted for.
 
-Deterministic Pilot Review
+Packets Given
+      =
+Bought
++ Returned
++ Damaged
++ Missing
++ Still at Shop
 
-MarketSarthi calculates the measured pilot percentages from actual
-merchant-entered results.
+🧮 Deterministic Pilot Review
+
+The pilot outcome is calculated from actual merchant-entered measurements.
+
+Percentage bought
 
 Packets bought
-      ÷
+÷
 Actual packets given
-      × 100
+× 100
 
-and:
+Percentage returned
 
 Packets returned
-      ÷
+÷
 Actual packets given
-      × 100
+× 100
 
-The application checks the merchant's own thresholds.
+Possible experiment outcomes include:
 
-Possible deterministic outcomes are:
+Outcome
 
-Outcome                             Meaning
+Meaning
 
-continue_small_test               Merchant-defined percentage checks
-and optional money check are met,
-with at least one shop asking for
-another batch
+continue_small_test
 
-modify_and_retest                 Some checks are met, or the
-optional money check exceeds the
-accepted test loss
+Merchant-defined checks are met and at least one shop asks for another batch
 
-investigate_before_next_test      Stock is incomplete/conflicting, or
-percentage checks pass without a
-shop asking for another batch
+modify_and_retest
 
-These are experiment-management outcomes, not market-success grades.
+Some checks are met or the optional money check exceeds the accepted test loss
 
-AI can explain the calculated outcome, but it cannot change the
-underlying facts or outcome.
+investigate_before_next_test
 
-Optional Money Check
+Data is incomplete/conflicting or the signals require investigation
 
-The merchant can optionally enter:
+stop_and_review
 
-Money received during the test
+Defined checks are not met and stock data is complete
 
-Test costs already spent and not recoverable
+These are pilot-management outcomes, not market-success predictions.
 
-Maximum acceptable test loss
+💬 MarketSarthi Copilot
 
-MarketSarthi calculates:
+The Copilot answers questions from the current saved workspace.
 
-Cash result =
-Money received − Non-recoverable test costs
+It does not automatically start a new paid search.
 
-This is intentionally a simple test-level cash check.
+flowchart TD
 
-It is not presented as:
+    Q["💬 Merchant Question"]
+        --> R["🧭 Deterministic Intent Routing"]
 
-Accounting profit
+    R --> P["Price Questions"]
+    R --> S["Shop / Distribution Questions"]
+    R --> V["Customer Language / Reviews"]
+    R --> T["Trends / Search / News"]
+    R --> G["General City / Next Steps"]
 
-ROI
+    P --> EP["Shopping Evidence"]
+    S --> ES["Maps + Reviews"]
+    V --> EV["Review Evidence"]
+    T --> ET["Matching Evidence"]
+    G --> EG["Scorecard + Summary"]
 
-Margin
+    EP --> A["Evidence-First Answer"]
+    ES --> A
+    EV --> A
+    ET --> A
+    EG --> A
 
-Unit economics
+    A --> W["Whitelisted Sources + Check Time"]
 
-Long-term viability
+    W --> F{"Need New Evidence?"}
 
-A forecast
+    F -->|Yes| REF["Guide Merchant to Targeted Refresh"]
+    F -->|No| END["Answer"]
 
-Repeated Pilot Rounds
+🔄 Targeted Refresh
 
-After a completed review, the merchant can save the round.
+Evidence changes over time.
 
-Up to 12 rounds are retained in the browser workspace.
-
-From the second round onward, the merchant records one main planned
-change:
-
-Repeat the same test
-
-Price
-
-Pack size
-
-Product / recipe
-
-Shop type
-
-Display / message
-
-Another change
-
-MarketSarthi compares the latest two rounds using measured changes.
-
-It does not claim that the selected change caused the difference.
-
-Round 1
-   ↓
-Measure
-   ↓
-Review
-   ↓
-Choose Planned Change
-   ↓
-Round 2
-   ↓
-Measure
-   ↓
-Compare Observed Changes
-   ↓
-Choose Next Test
-
-Results, Refresh and Evidence Freshness
-
-After live research, the merchant can refresh only the evidence group
-that needs updating:
+Instead of rerunning everything, MarketSarthi can refresh a selected evidence group:
 
 Shopping
 
@@ -664,126 +473,124 @@ Maps + Reviews
 
 Trends
 
-Web Search
+Search
 
 News
 
 A targeted refresh:
 
-Bypasses the local cache
+bypasses the local cache
 
-Re-runs only the selected evidence group
+reruns only the selected evidence group
 
-Preserves the rest of the workspace
+preserves the rest of the workspace
 
-Clears stale final synthesis
+preserves pilot information
 
-Keeps the pilot and merchant workspace intact
+clears stale synthesis
 
-Refresh everything updates all five groups without resetting the
-workspace.
+💾 Workspace Persistence
 
-Every live observation has a check time.
+MarketSarthi stores the current workspace in browser-local storage.
 
-A check time means when MarketSarthi observed the evidence. It is
-not the source publication date and does not guarantee that a price,
-listing, article or shop detail is still current.
+It preserves:
 
-Workspace Persistence
+merchant information
 
-MarketSarthi saves the current workspace in browser-local storage.
+approved brief
 
-Saved state includes:
+research results
 
-Merchant form
+pilot draft
 
-Approved brief
+shop shortlist
 
-Research results
+outreach records
 
-Pilot draft
+shop measurements
 
-Shop shortlist
-
-Outreach records
-
-Shop measurements
-
-Current review
+current review
 
 Copilot history
 
-Saved pilot rounds
-
-This means a browser refresh does not automatically require another paid
-research run.
+saved pilot rounds
 
 JSON Backup
 
-The complete workspace can be exported as a versioned JSON backup.
+The workspace can also be exported as a versioned JSON backup.
 
 Restore validates:
 
-MarketSarthi/version marker
+workspace version
 
-Core workspace structure
+core structure
 
-File size
+file size
 
-Secret-like fields
+secret-like fields
 
-Stored URL protocols
+stored URL protocols
 
-API keys and server environment variables are never exported.
+API keys are never exported.
 
-Browser-local storage is not account-backed persistence and does not
-synchronize across devices or users.
+🛠️ Technology Stack
 
-Technology Stack
+Layer
 
-Layer                   Technology              Role
+Technology
 
-Frontend                Next.js, React,         Merchant workflow,
-TypeScript, CSS         research views, Copilot
-and pilot workspace
+Frontend
 
-Backend                 FastAPI, Python,        API contracts,
-Pydantic, HTTPX         planning, evidence
-processing and
-deterministic logic
+Next.js • React • TypeScript • CSS
 
-Market evidence         SerpApi                 Shopping, Maps,
-Reviews, Trends, Search
-and News
+Backend
 
-Primary LLM             DeepSeek V4.1 Flash     Research briefs and
-evidence-bound
-synthesis
+FastAPI • Python • Pydantic • HTTPX
 
-Fallback LLM            Gemini                  Optional
-structured-generation
-fallback
+Market Research
 
-Optional classifier     TypeSafe Jev            Confidence-gated
-Shopping classification
+SerpApi
 
-Python environment      uv                      Dependency and
-environment management
+Primary LLM
 
-Frontend packages       npm                     Web application
-dependencies
+DeepSeek V4.1 Flash
 
-Architecture
+Fallback LLM
 
-MarketSarthi
+Gemini
+
+Optional Classifier
+
+TypeSafe Jev
+
+Python Environment
+
+uv
+
+Frontend Package Manager
+
+npm
+
+Development
+
+VS Code Tasks
+
+🗂️ Project Architecture
+
+MarketSarthi/
 │
 ├── apps/
+│   │
 │   ├── api/
 │   │   ├── app/
+│   │   │   ├── main.py
+│   │   │   │
 │   │   │   ├── routers/
 │   │   │   │   └── research.py
+│   │   │   │
 │   │   │   ├── schemas/
 │   │   │   │   └── research.py
+│   │   │   │
 │   │   │   └── services/
 │   │   │       ├── research.py
 │   │   │       ├── copilot.py
@@ -793,6 +600,7 @@ MarketSarthi
 │   │   │       ├── llm.py
 │   │   │       ├── jev.py
 │   │   │       └── pilot_review.py
+│   │   │
 │   │   └── tests/
 │   │
 │   └── web/
@@ -812,69 +620,59 @@ MarketSarthi
 ├── package.json
 └── README.md
 
-Important backend files
+📁 Important Files
 
-File                                      Purpose
+File
 
-apps/api/app/services/research.py       Query planning, evidence
-collection, normalization, refresh
-and orchestration
+Purpose
 
-apps/api/app/services/copilot.py        Copilot routing, evidence selection
-and source validation
+apps/api/app/services/research.py
 
-apps/api/app/services/serpapi.py        SerpApi integration, retries and
-caching
+Research planning, evidence collection, normalization and refresh
 
-apps/api/app/services/deepseek.py       DeepSeek structured-output adapter
+apps/api/app/services/copilot.py
 
-apps/api/app/services/gemini.py         Optional Gemini fallback
+Copilot routing and evidence selection
 
-apps/api/app/services/jev.py            Optional TypeSafe Jev integration
+apps/api/app/services/serpapi.py
 
-apps/api/app/services/pilot_review.py   Deterministic pilot calculations
-and AI explanation
+SerpApi integration, retries and cache
 
-Important frontend files
+apps/api/app/services/deepseek.py
 
-File                                Purpose
+DeepSeek structured-output adapter
 
-apps/web/app/page.tsx             Merchant workflow, results,
-Copilot, persistence and pilot
-workspace
+apps/api/app/services/gemini.py
 
-apps/web/app/globals.css          Visual system and responsive layout
+Gemini fallback adapter
 
-API Endpoints
+apps/api/app/services/jev.py
 
-Endpoint                                   Purpose
+TypeSafe Jev integration
 
-POST /api/v1/research/brief              Generate editable research brief
+apps/api/app/services/pilot_review.py
 
-POST /api/v1/research/preview            Generate research plan without paid
-search calls
+Deterministic pilot calculations
 
-POST /api/v1/research/analyze            Run live evidence research
+apps/api/app/routers/research.py
 
-POST /api/v1/research/refresh            Refresh selected evidence groups
+Research, refresh, Copilot and pilot endpoints
 
-POST /api/v1/research/decision-summary   Generate evidence-safe final
-summary
+apps/web/app/page.tsx
 
-POST /api/v1/research/copilot            Answer from supplied workspace
-evidence
+Main merchant workflow and UI
 
-POST /api/v1/research/pilot-review       Calculate and explain pilot outcome
+apps/web/app/globals.css
 
-GET /health                              Application health
+Frontend styling
 
-Readiness routes                           Provider/configuration readiness
+PROJECT_CONTEXT.md
 
-Run MarketSarthi Locally
+Detailed project source of truth
+
+🚀 Run MarketSarthi
 
 Prerequisites
-
-You need:
 
 Python 3.11+
 
@@ -882,9 +680,9 @@ uv
 
 Node.js / npm
 
-VS Code recommended for the quickest local run
+VS Code recommended
 
-1. Configure environment variables
+Environment Variables
 
 Copy:
 
@@ -894,7 +692,7 @@ to:
 
 .env
 
-Required for the full live workflow:
+Required for full live research:
 
 SERPAPI_KEY=
 DEEPSEEK_API_KEY=
@@ -904,30 +702,18 @@ Optional:
 GEMINI_API_KEY=
 TYPESAFE_API_KEY=
 
-Do not put real keys in:
+[!IMPORTANT]
+Never commit real API keys or put them inside frontend code.
 
-apps/web
+⚡ Quickest Way — VS Code
 
-frontend source code
+For a judge or someone opening the repository for the first time:
 
-screenshots
+1. Open the repository root in VS Code
 
-commits
+Open the MarketSarthi repository, not only apps/web or apps/api.
 
-README files
-
-Quickest Way: VS Code
-
-If you are a judge or a new contributor, you can use the committed VS
-Code tasks.
-
-Step 1 --- Open the repository
-
-Open the repository root in VS Code.
-
-Do not open only apps/web or apps/api.
-
-Step 2 --- Open Command Palette
+2. Open Command Palette
 
 Press:
 
@@ -937,35 +723,27 @@ Search:
 
 Tasks: Run Task
 
-Then select:
+Select:
 
 MarketSarthi: Start Full Stack
 
-This starts the frontend and backend development workflow.
-
-Step 3 --- Open the application
-
-Open:
+3. Open the application
 
 http://localhost:3000
 
-FastAPI documentation:
+FastAPI docs:
 
 http://localhost:8000/docs
 
-Other available VS Code tasks
+Available VS Code tasks
 
 MarketSarthi: Start API
 MarketSarthi: Start Web
 MarketSarthi: Start Full Stack
 
-This is the recommended path for a quick project demonstration.
+💻 Terminal Setup
 
-Terminal Setup
-
-If you prefer the terminal:
-
-Install the API environment
+Install backend dependencies
 
 uv --cache-dir apps/api/.uv-cache sync --project apps/api --extra dev
 
@@ -973,244 +751,147 @@ Install frontend dependencies
 
 npm --prefix apps/web install
 
-Start the API
+Start API
 
 npm run dev:api
 
-Start the web application
+Start Web
 
-Open a second terminal:
+Open another terminal:
 
 npm run dev:web
 
-Then open:
+Then visit:
 
 http://localhost:3000
 
-Verification
+🎬 Judge / Demo Flow
 
-Before submitting changes, run:
+Once the application is running:
+
+Merchant Input
+      ↓
+Generate AI Research Brief
+      ↓
+Edit / Approve Brief
+      ↓
+Preview Research Plan
+      ↓
+Start Live Research
+      ↓
+Inspect Evidence + Tool Trace
+      ↓
+Review Decision Overview
+      ↓
+Choose Researched City
+      ↓
+Plan Small Pilot
+      ↓
+Select Potential Shops
+      ↓
+Record Outreach
+      ↓
+Enter Pilot Results
+      ↓
+Review Deterministic Outcome
+      ↓
+Save Pilot Round
+      ↓
+Define Next Bounded Experiment
+
+🧪 Verification
+
+Run:
 
 npm run test:api
 npm run lint:api
 npm run lint:web
 npm run build:web
 
-If a Windows preview process locks the normal .next directory,
-production-build verification can use:
+If Windows locks the normal .next directory:
 
 $env:MARKETSARTHI_NEXT_DIST_DIR = ".next-build-check"
 npm run build:web
 
-Judge / Demo Flow
+🔐 Security
 
-Once the application is running:
+Never commit .env
 
-1. Enter merchant + product information
-              ↓
-2. Generate research brief
-              ↓
-3. Review / edit / approve
-              ↓
-4. Preview research plan
-              ↓
-5. Start live research
-              ↓
-6. Inspect evidence + tool trace
-              ↓
-7. Review decision overview
-              ↓
-8. Choose a researched city
-              ↓
-9. Plan a small pilot
-              ↓
-10. Select potential shops
-              ↓
-11. Record outreach
-              ↓
-12. Enter pilot measurements
-              ↓
-13. Review deterministic outcome
-              ↓
-14. Save the pilot round
-              ↓
-15. Define the next bounded experiment
+Never put API keys in frontend code
 
-Security
+Never use NEXT_PUBLIC_ for secret values
 
-Never commit .env.
+.env.example contains variable names only
 
-Never place API keys in frontend code.
+Browser backups do not contain API keys
 
-Never use NEXT_PUBLIC_ for secret values.
+Restore rejects secret-like fields
 
-.env.example contains variable names only.
+Restore rejects unsafe URL protocols
 
-Browser backups do not contain API keys.
+Merchant business notes and pilot data should be treated as private workspace data
 
-Workspace restore rejects secret-like fields and unsafe URL
-protocols.
+If a credential is exposed, rotate it immediately.
 
-Merchant business notes, retailer outreach and pilot results should
-be treated as private workspace data.
+⚠️ Current Limitations
 
-If a credential is accidentally exposed, rotate it immediately.
+MarketSarthi is intentionally transparent about its boundaries:
 
-Current Limitations
-
-MarketSarthi is intentionally transparent about what its evidence can
-and cannot establish.
-
-Google Maps review mentions may be old and are not current-stock
-proof.
-
-Review verification is bounded to control SerpApi usage.
+Maps review mentions may be old and are not current-stock proof.
 
 Search availability varies by query, location and time.
 
-Google Trends may return no usable data for low-volume terms.
-
-Trends values are relative and cannot be compared directly with
-sales or population.
+Google Trends is relative interest, not sales or demand.
 
 Search snippets can be incomplete or stale.
 
-Google News can contain loosely related or older coverage.
+Google News can contain older or loosely related coverage.
 
-The SerpApi cache is process-local.
+SerpApi caching is process-local.
 
-Authentication and server/database persistence are not currently
-active.
+Authentication and server/database persistence are not currently active.
 
-Workspace persistence is browser-local and does not synchronize
-across devices.
-
-Saved pilot history is limited to 12 rounds.
+Workspace persistence is browser-local and does not synchronize across devices.
 
 Pilot measurements depend on merchant-entered observations.
 
-The optional money check is a simple test-level cash snapshot, not
-accounting.
+The optional money check is a simple test-level cash snapshot, not accounting.
 
-Copilot conversations are browser-local and limited to 30 messages.
+Copilot history is browser-local.
 
 Jev currently classifies Google Shopping evidence only.
 
-Jev does not reduce SerpApi retrieval time.
+Jev does not replace SerpApi retrieval.
 
-The Jev confidence threshold requires further evaluation before
-wider routing.
+The Jev confidence threshold should be evaluated before wider routing.
 
-A future market-potential model must not reuse evidence coverage or
-pilot completion as a demand score.
+Evidence coverage must not be reused as a demand or market-potential score.
 
-Project Documentation
+📚 Documentation
 
-For the detailed living technical state of the project, read:
+For the detailed technical state of the project:
 
 PROJECT_CONTEXT.md
 
-It contains:
-
-Current product workflow
-
-Evidence contract
-
-Search strategy
-
-Query planning
-
-Pilot rules
-
-Copilot behavior
-
-API contracts
-
-Environment configuration
-
-Current limitations
-
-Dated change history
-
-Additional documentation:
-
 docs/ARCHITECTURE.md
+
 docs/DAY_01.md
+
 AGENTS.md
 
-Repository Guide
+🌟 Project Philosophy
 
-<details>
+Evidence first.
+Deterministic where facts matter.
+AI where explanation helps.
+Small experiments before large commitments.
 
-<summary>
+Research with evidence. Test with discipline. Learn from reality.
 
-Open repository guide
+<div align="center">
 
-</summary>
+Built by Vishv Pandya
 
-Path                                Purpose
+Generative AI • Agentic AI • Market Research • Evidence-Based Decision Systems
 
-README.md                         Public project overview and
-quick-start guide
-
-PROJECT_CONTEXT.md                Detailed living product and
-technical source of truth
-
-AGENTS.md                         Repository instructions for
-AI-assisted development
-
-docs/ARCHITECTURE.md              Architecture and integration
-documentation
-
-docs/DAY_01.md                    Historical foundation plan
-
-.env.example                      Safe environment-variable template
-
-.vscode/                          VS Code settings and runnable
-development tasks
-
-package.json                      Root development commands
-
-apps/api/                         FastAPI backend
-
-apps/web/                         Next.js frontend
-
-apps/api/tests/                   Backend tests
-
-Generated folders and secrets such as .env, node_modules, .venv,
-.next, caches and local databases should not be committed.
-
-</details>
-
-Project Highlights
-
-Evidence-first regional expansion research
-        ↓
-Six SerpApi evidence surfaces
-        ↓
-Deterministic safeguards
-        ↓
-Optional confidence-gated Jev
-        ↓
-Evidence-bound AI synthesis
-        ↓
-Merchant-controlled real-world pilot
-        ↓
-Deterministic pilot review
-        ↓
-Measured next experiment
-
-The central design principle is simple:
-
-MarketSarthi does not try to predict the market with certainty. It
-helps a merchant make the next test more informed, measurable and
-transparent.
-
-Author
-
-Vishv Pandya
-
-Built as a hands-on exploration of:
-
-Generative AI • Agentic AI • Market Research • LLM Applications •
-Evidence-Based Decision Systems
+</div>
