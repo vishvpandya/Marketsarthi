@@ -1,7 +1,12 @@
+<div align="center">
+
 MarketSarthi
 
-Evidence-first regional expansion copilot for Indian MSMEs and D2C
-merchants.
+Evidence-first regional expansion copilot for Indian MSMEs and D2C merchants
+
+Research → Compare → Verify → Pilot → Measure → Learn
+
+</div>
 
 MarketSarthi helps a merchant turn product facts and business context
 into a transparent, source-linked market hypothesis and a small,
